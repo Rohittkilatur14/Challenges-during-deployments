@@ -1,0 +1,121 @@
+thor@jumphost ~$ sudo pip3 install ansible ==4.10.0
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for thor: 
+ERROR: Invalid requirement: '==4.10.0'
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+thor@jumphost ~$ sudo pip3 install ansible ==4.25.3
+ERROR: Invalid requirement: '==4.25.3'
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+thor@jumphost ~$ sudo pip3 install --upgrade pip
+Requirement already satisfied: pip in /usr/local/lib/python3.9/site-packages (24.0)
+^CERROR: Operation cancelled by user
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+thor@jumphost ~$ sudo pip3 install --upgrade pip
+Requirement already satisfied: pip in /usr/local/lib/python3.9/site-packages (24.0)
+Collecting pip
+  Downloading pip-25.3-py3-none-any.whl.metadata (4.7 kB)
+Downloading pip-25.3-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 22.9 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 24.0
+    Uninstalling pip-24.0:
+      Successfully uninstalled pip-24.0
+  WARNING: The scripts pip, pip3 and pip3.9 are installed in '/usr/local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed pip-25.3
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+thor@jumphost ~$ ansible --version
+bash: ansible: command not found
+thor@jumphost ~$ ansible -version
+bash: ansible: command not found
+thor@jumphost ~$ #which ansible
+thor@jumphost ~$ ansible --version
+bash: ansible: command not found
+thor@jumphost ~$ ansible -version
+bash: ansible: command not found
+thor@jumphost ~$ ls -l $(which ansible)
+/usr/bin/which: no ansible in (/home/thor/.local/bin:/home/thor/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+total 0
+thor@jumphost ~$ #which ansible
+thor@jumphost ~$ sudo apt update
+[sudo] password for thor: 
+sudo: apt: command not found
+thor@jumphost ~$ exit
+logout
+thor@jumphost ~$ sudo apt install -y ansible
+[sudo] password for thor: 
+sudo: apt: command not found
+thor@jumphost ~$ sudo pip3 install ansible ==4.9.0
+sudo: pip3: command not found
+thor@jumphost ~$ python3 -m pip show ansible
+WARNING: Package(s) not found: ansible
+thor@jumphost ~$ python3 -m pip install --user ansible
+Collecting ansible
+  Downloading ansible-8.7.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting ansible-core~=2.15.7 (from ansible)
+  Downloading ansible_core-2.15.13-py3-none-any.whl.metadata (7.0 kB)
+Collecting jinja2>=3.0.0 (from ansible-core~=2.15.7->ansible)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Requirement already satisfied: PyYAML>=5.1 in /usr/lib64/python3.9/site-packages (from ansible-core~=2.15.7->ansible) (5.4.1)
+Requirement already satisfied: cryptography in /usr/lib64/python3.9/site-packages (from ansible-core~=2.15.7->ansible) (36.0.1)
+Collecting packaging (from ansible-core~=2.15.7->ansible)
+  Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting resolvelib<1.1.0,>=0.5.3 (from ansible-core~=2.15.7->ansible)
+  Downloading resolvelib-1.0.1-py2.py3-none-any.whl.metadata (4.0 kB)
+Collecting importlib-resources<5.1,>=5.0 (from ansible-core~=2.15.7->ansible)
+  Downloading importlib_resources-5.0.7-py3-none-any.whl.metadata (2.8 kB)
+Collecting MarkupSafe>=2.0 (from jinja2>=3.0.0->ansible-core~=2.15.7->ansible)
+  Downloading markupsafe-3.0.3-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Requirement already satisfied: cffi>=1.12 in /usr/lib64/python3.9/site-packages (from cryptography->ansible-core~=2.15.7->ansible) (1.14.5)
+Requirement already satisfied: pycparser in /usr/lib/python3.9/site-packages (from cffi>=1.12->cryptography->ansible-core~=2.15.7->ansible) (2.20)
+Requirement already satisfied: ply==3.11 in /usr/lib/python3.9/site-packages (from pycparser->cffi>=1.12->cryptography->ansible-core~=2.15.7->ansible) (3.11)
+Downloading ansible-8.7.0-py3-none-any.whl (48.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.4/48.4 MB 173.1 MB/s  0:00:00
+Downloading ansible_core-2.15.13-py3-none-any.whl (2.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 181.3 MB/s  0:00:00
+Downloading importlib_resources-5.0.7-py3-none-any.whl (24 kB)
+Downloading resolvelib-1.0.1-py2.py3-none-any.whl (17 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Downloading packaging-25.0-py3-none-any.whl (66 kB)
+Installing collected packages: resolvelib, packaging, MarkupSafe, importlib-resources, jinja2, ansible-core, ansible
+Successfully installed MarkupSafe-3.0.3 ansible-8.7.0 ansible-core-2.15.13 importlib-resources-5.0.7 jinja2-3.1.6 packaging-25.0 resolvelib-1.0.1
+thor@jumphost ~$ export PATH=$PATH:/home/thor/.local/bin
+ansible --version
+ansible [core 2.15.13]
+  config file = None
+  configured module search path = ['/home/thor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/thor/.local/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/thor/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/thor/.local/bin/ansible
+  python version = 3.9.18 (main, Jan 24 2024, 00:00:00) [GCC 11.4.1 20231218 (Red Hat 11.4.1-3)] (/usr/bin/python3)
+  jinja version = 3.1.6
+  libyaml = True
+thor@jumphost ~$ #which ansible
+thor@jumphost ~$ ansible --version
+ansible [core 2.15.13]
+  config file = None
+  configured module search path = ['/home/thor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/thor/.local/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/thor/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/thor/.local/bin/ansible
+  python version = 3.9.18 (main, Jan 24 2024, 00:00:00) [GCC 11.4.1 20231218 (Red Hat 11.4.1-3)] (/usr/bin/python3)
+  jinja version = 3.1.6
+  libyaml = True
+thor@jumphost ~$ ls -l $(which ansible)
+-rwxr-xr-x 1 thor thor 189 Dec  3 09:37 /home/thor/.local/bin/ansible
+thor@jumphost ~$ 
